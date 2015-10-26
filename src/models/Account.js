@@ -1,5 +1,5 @@
 var crypto = require('crypto');
-var mongoose = require('mongoose');
+var mongoose = require('mongoose-bird')();
 
 var AccountModel;
 var iterations = 10000;
