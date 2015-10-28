@@ -10,7 +10,7 @@ var makerPage = function(req, res) {
       return res.status(400).json({error: 'An error occurred'});
     }
 
-    res.render('app', {domos: doc});
+    res.render('app', {csrfToken: req.csrfToken(), domos: doc});
   });
 };
 
