@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+var mongoose = require('mongoose-bird')();
 var _ = require('lodash');
 
 var DomoModel;

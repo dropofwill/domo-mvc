@@ -42,8 +42,10 @@ var destroyDomo = function(req, res) {
     return res.status(400).json({error: 'Domo Id is required'});
   }
 
+  console.log(req.body);
   Domo.DomoModel.destroyById(req.body.id,
     function (err, domo) {
+      console.log(err, domo);
       if (err) {
         console.error(err);
         return res.status(400).json({error: 'An error occured'});
@@ -55,4 +57,4 @@ var destroyDomo = function(req, res) {
 
 module.exports.makerPage = makerPage;
 module.exports.make = make;
-// module.exports.destroyDomo = destroyDomo;
+module.exports.destroyDomo = destroyDomo;

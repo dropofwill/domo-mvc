@@ -28,10 +28,10 @@ block body
           h3.domoName Name: #{domo.name}
           h3.domoAge Age: #{domo.age}
           h3.domoAge HP: #{domo.hp}
-          // form(class='domoDelete', name='domoDelete', action='/maker', method='DELETE')
-          //   input(type='hidden', name='id', value='#{domo.id}')
-          //   input(type='hidden', name='_csrf', value='#{csrfToken}')
-          //   button(type='submit', class='makeDeleteSubmit') Delete
+          form(class='domoDelete', name='domoDelete', action='/maker', method='DELETE')
+            input(type='hidden', name='id', value='#{domo.id}')
+            input(type='hidden', name='_csrf', value='#{csrfToken}')
+            button(type='submit', class='makeDeleteSubmit') Delete
 
   #domoMessage
     img#speech(src='/assets/img/speech.png', alt='speech box')

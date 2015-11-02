@@ -24,9 +24,9 @@ var router = function(app) {
   app.get('/maker',
           mid.requiresLogin,
           ctrl.Domo.makerPage);
-  // app.delete('/maker',
-  //         mid.requiresLogin,
-  //         ctrl.Domo.destroyDomo);
+  app.delete('/maker',
+          mid.requiresLogin,
+          ctrl.Domo.destroyDomo);
   app.post('/maker',
           mid.requiresLogin,
           ctrl.Domo.make);

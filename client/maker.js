@@ -7,10 +7,10 @@ $(document).ready(function() {
     $('#domoMessage').animate({width:'toggle'},350);
   }
 
-  function sendAjax(action, data) {
+  function sendAjax(method, action, data) {
     $.ajax({
       cache: false,
-      type: 'POST',
+      type: method,
       url: action,
       data: data,
       dataType: 'json',
@@ -37,9 +37,17 @@ $(document).ready(function() {
       return false;
     }
 
-    sendAjax($('#domoForm').attr('action'), $('#domoForm').serialize());
+    sendAjax('POST', $('#domoForm').attr('action'), $('#domoForm').serialize());
 
     return false;
   });
 
+
+  $('.domoDelete').on('submit', function(e) {
+    e.preventDefault();
+
+    sendAjax('DELETE', $(this).attr('action'), $(this).serialize());
+
+    return false;
+  });
 });
