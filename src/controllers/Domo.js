@@ -37,5 +37,22 @@ var make = function(req, res) {
   });
 };
 
+var destroyDomo = function(req, res) {
+  if (!req.body.id) {
+    return res.status(400).json({error: 'Domo Id is required'});
+  }
+
+  Domo.DomoModel.destroyById(req.body.id,
+    function (err, domo) {
+      if (err) {
+        console.error(err);
+        return res.status(400).json({error: 'An error occured'});
+      }
+
+      res.json({redirect: '/maker'});
+    });
+};
+
 module.exports.makerPage = makerPage;
 module.exports.make = make;
+// module.exports.destroyDomo = destroyDomo;

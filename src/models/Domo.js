@@ -55,6 +55,10 @@ DomoSchema.statics.findByOwner = function(ownerId, callback) {
     .exec(callback);
 };
 
+DomoSchema.statics.destroyById = function(domoId, cb) {
+  return DomoModel.findByIdAndRemove(domoId, cb);
+};
+
 DomoModel = mongoose.model('Domo', DomoSchema);
 
 module.exports.DomoModel = DomoModel;
