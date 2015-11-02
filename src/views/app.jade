@@ -12,7 +12,9 @@ block body
       label(for='name') Name:
       input#domoName(type='text', name='name', placeholder='Domo Name')
       label(for='age') Age:
-      input#domoAge(type='text', name='age', placeholder='Domo Age')
+      input#domoAge(type='number', name='age', placeholder='Domo Age')
+      label(for='hp') HP:
+      input#domoHP(type='number', name='hp', placeholder='Domo HP')
       input(type='hidden', name='_csrf', value='#{csrfToken}')
       a#makeDomoSubmit(class='makeDomoSubmit', href='#') Make Domo
   section#domos

@@ -45,14 +45,15 @@ var signup = function(req, res) {
 
     var acc = new Account.AccountModel(accountData);
     acc.save(function(err) {
-        if (err) {
-          console.error(err);
-          return res.status(400).json({error: 'An error occurred'});
-        }
+      console.log(acc, err);
+      if (err) {
+        console.error(err);
+        return res.status(400).json({error: 'An error occurred'});
+      }
 
-        req.session.account = acc.toAPI();
-        res.json({redirect: '/maker'});
-      });
+      req.session.account = acc.toAPI();
+      res.json({redirect: '/maker'});
+    });
   });
 };
 

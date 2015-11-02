@@ -10,6 +10,8 @@ var makerPage = function(req, res) {
       return res.status(400).json({error: 'An error occurred'});
     }
 
+    console.dir(doc);
+
     res.render('app', {csrfToken: req.csrfToken(), domos: doc});
   });
 };
@@ -22,6 +24,7 @@ var make = function(req, res) {
   new Domo.DomoModel({
     name: req.body.name,
     age: req.body.age,
+    hp: req.body.hp,
     owner: req.session.account._id,
   })
   .save(function(err) {

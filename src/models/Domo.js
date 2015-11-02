@@ -1,4 +1,4 @@
-var mongoose = require('mongoose-bird')();
+var mongoose = require('mongoose');
 var _ = require('lodash');
 
 var DomoModel;
@@ -21,6 +21,12 @@ var DomoSchema = new mongoose.Schema({
     required: true,
   },
 
+  hp: {
+    type: Number,
+    min: 0,
+    required: true,
+  },
+
   owner: {
     type: mongoose.Schema.ObjectId,
     required: true,
@@ -38,15 +44,15 @@ DomoSchema.methods.toAPI = function() {
   return {
     name: this.name,
     age: this.age,
+    hp: this.hp,
   };
 };
 
 DomoSchema.statics.findByOwner = function(ownerId, callback) {
   return DomoModel
     .find({owner: mongoose.Types.ObjectId(ownerId),})
-    .select('name age')
-    .exec(callback)
-    ;
+    .select('name age hp')
+    .exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);

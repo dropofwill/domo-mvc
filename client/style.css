@@ -1,4 +1,4 @@
-html, body {
+  html, body {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -68,7 +68,12 @@ nav:nth-child(1) {
 }
 
 .domoForm input[type=text] {
-    float:left;
+  float: left;
+}
+
+.domoForm input[type=number] {
+  float: left;
+  width: 50px;
 }
 
 .makeDomoSubmit {
@@ -189,7 +194,7 @@ nav:nth-child(1) {
     height: 450px;
     width: 300px;
     -ms-transform: rotate(330deg);
-    -webkit-transform: rotate(330deg); 
+    -webkit-transform: rotate(330deg);
     transform: rotate(330deg);
 }
 
